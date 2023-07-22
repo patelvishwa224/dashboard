@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e6354ed42c.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media only screen and (max-width: 640px) {
+            .hide {
+                color: white;
+                transition: all 0.5s ease-in-out;
+                width: calc(100%-300px);
+                margin-left: -264px;
+            }
+        }
+
+        .side {
+            transition: all 0.5s ease-in-out;
+        }
+    </style>
+    <script>
+        function showHide() {
+            var element = document.getElementById("sidebar");
+            element.classList.toggle("hide");
+        }
+        function openCity(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "grid";
+  evt.currentTarget.className += " active";
+}
+    </script>
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        .tab{
+            overflow: hidden;
+        }
+
+        .tabcontent{
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="flex min-h-screen bg-gray-50 max-sm:overflow-x-hidden">
+    <aside class="flex flex-col border-r-2 menu hide side" id="sidebar">
+        <div>
+            <div href="#" class="inline-flex items-center justify-center h-20 w-full">
+                <div class="text-gray-700 text-4xl ml-2 mt-20 font-semibold " x-show="menu">CMS</div>
+                <i class="bi bi-x ml-20 cursor-pointer" onclick="Openbar()"></i>
+            </div>
+
+            <div class="flex-grow flex flex-col justify-between text-gray-500 w-60 m-3 mt-10">
+                <nav class="flex flex-col mx-2 my-6 space-y-2">
+                    <a href="#"
+                        class="inline-flex items-center py-1 duration-300 hover:text-white hover:bg-blue-500 rounded-lg px-3">
+                        <i class="fa-solid fa-rocket"></i>
+                        <span class="ml-2" x-show="menu">Projects</span>
+                    </a>
+
+                    <a href="#"
+                        class="inline-flex items-center py-1 duration-300 hover:text-white hover:bg-blue-500 rounded-lg px-3">
+                        <i class="fa-regular fa-comments"></i>
+                        <span class="ml-2" x-show="menu">Chat</span>
+                    </a>
+
+                    <a href="#"
+                        class="inline-flex items-center py-1 duration-300 hover:text-white hover:bg-blue-500 rounded-lg px-3">
+                        <i class="fa-solid fa-receipt"></i>
+                        <span class="ml-2" x-show="menu">Invoices</span>
+                    </a>
+
+                    <a href="#"
+                        class="inline-flex items-center py-1 duration-300 hover:text-white hover:bg-blue-500 rounded-lg px-3">
+                        <i class="fa-solid fa-gear"></i>
+                        <span class="ml-2" x-show="menu">Preferences</span>
+                    </a>
+
+                    <a href="#"
+                        class="inline-flex items-center py-1 duration-300 hover:text-white hover:bg-blue-500 rounded-lg px-3">
+                        <i class="fa-regular fa-user"></i>
+                        <span class="ml-2" x-show="menu">Profile</span>
+            </div>
+            <div class="flex-grow flex flex-col justify-between text-gray-500 w-52 ml-6 space-y-1 max-sm:justify-start">
+                <a href="#" class="inline-flex items-center py-1 rounded-lg px-2">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span class="ml-2 gap-2" x-show="menu">Recent projects</span>
+                    <i class="fa-solid fa-arrow-down-wide-short text-blue-500 ml-1.5"></i>
+                    <i class="fa-solid fa-magnifying-glass text-blue-500 ml-2"></i>
+                </a>
+                <hr class="m-2 mr-2 w-52">
+                <a href="#"
+                    class="inline-flex items-center py-1 duration-300 hover:text-white hover:bg-blue-500 rounded-lg ml-8">
+                    <span class="ml-2" x-show="menu">Raaj solar</span>
+                </a>
+
+                <a href="#"
+                    class="inline-flex items-center py-1 duration-300 hover:text-white hover:bg-blue-500 rounded-lg ml-8">
+                    <span class="ml-2" x-show="menu">Research Connect</span>
+                </a>
+
+                <a href="#"
+                    class="inline-flex items-center py-1 duration-300 hover:text-white hover:bg-blue-500 rounded-lg ml-8">
+                    <span class="ml-2" x-show="menu">Active Learner</span>
+                </a>
+
+                <a href="#"
+                    class="inline-flex items-center py-1 duration-300 hover:text-white hover:bg-blue-500 rounded-lg ml-8">
+                    <span class="ml-2" x-show="menu">Train construction</span>
+                </a>
+
+                <a href="#"
+                    class="inline-flex items-center py-1 duration-300 hover:text-white hover:bg-blue-500 rounded-lg ml-8">
+                    <span class="ml-2" x-show="menu">PVOT Designs</span>
+                </a>
+            </div>
+    </aside>
+    <!-- sidebar ends -->
+    <main class="p-6 sm:p-10 space-y-6">
+        <div>
+            <div class="flex md:flex-row justify-between">
+                <div class="mr-6">
+                    <div class="flex">
+                        <i class="fa-solid fa-bars fa-2xl mt-5 mr-2 md:mr-6 md:hidden" onclick="showHide()"></i>
+                        <div
+                            class="text-4xl font-semibold mb-6 text-gray-600 max-sm:text-xl max-sm:w-32 max-sm:mb-2 max-sm:h-12">
+                            Dashboard Design</div>
+                    </div>
+                </div>
+                <!-- search -->
+                <div class="relative max-sm:hidden">
+                    <i class="absolute fa fa-search text-gray-400 top-4 left-9"></i>
+                    <input type="text"
+                        class="bg-gray-100 h-12 w-96 px-9 ml-5 rounded-xl focus:outline-none max-sm:hidden"
+                        placeholder="Search for projects">
+                </div>
+                <div class="flex flex-wrap justify-end items-start  mb-7 mt-0 ">
+                    <button
+                        class="inline-flex rounded-full text-white bg-blue-600 px-3 py-3 ml-6 mb-3 fa-solid fa-magnifying-glass max-sm:ml-0 max-sm:mb-6">
+                    </button>
+                    <button
+                        class="inline-flex rounded-full text-white bg-blue-600 px-3 py-3 ml-6 mb-3 fa-solid fa-bell max-sm:ml-2">
+                    </button>
+                    <button class="inline-flex rounded-full ml-5  mb-4 max-sm:hidden">
+                        <img src="men.jpg" height="40" width="40" class="rounded-full ">
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class=" outer-wrapper">
+            <div class=" inner-wrapper border-b border-gray-200">
+                <div class="tab flex font-medium text-gray-700 text-md max-sm:mt-2 max-sm:pl-3">
+                    <button onclick="openCity(event, 'Dashboard')"
+                        class="tablinks  focus:border-blue-500 focus:border-b-2 focus:text-blue-500 pseudo-item mr-10 max-sm:mr-5"
+                        style="padding-bottom: 9px">Dashboard</button>
+                    <button onclick="openCity(event, 'Task')"
+                        class="tablinks focus:border-blue-500 focus:border-b-2 focus:text-blue-500 pseudo-item mr-10 max-sm:mr-5"
+                        style="padding-bottom: 9px">Task</button>
+                    <button onclick="openCity(event, 'Chat')"
+                        class="tablinks focus:border-blue-500 focus:border-b-2 focus:text-blue-500 pseudo-item mr-10 max-sm:mr-5"
+                        style="padding-bottom: 9px">Chat</button>
+                    <button onclick="openCity(event, 'Documents')"
+                        class="tablinks focus:border-blue-500 focus:border-b-2 focus:text-blue-500 pseudo-item mr-10 max-sm:mr-5"
+                        style="padding-bottom: 9px">Documents</button>
+                    <button onclick="openCity(event, 'Pending Requirements')"
+                        class="tablinks focus:border-blue-500 focus:border-b-2 focus:text-blue-500 pseudo-item mr-10 max-sm:mr-5"
+                        style="padding-bottom: 9px">Pending Requirements</button>
+                    <button onclick="openCity(event, 'Invoices')"
+                        class="tablinks focus:border-blue-500 focus:border-b-2 focus:text-blue-500 pseudo-item mr-10 max-sm:mr-5"
+                        style="padding-bottom: 9px">Invoices</button>
+                    <button onclick="openCity(event, 'Timeline')"
+                        class="tablinks focus:border-blue-500 focus:border-b-2 focus:text-blue-500 pseudo-item mr-10 max-sm:mr-5"
+                        style="padding-bottom: 9px">Timeline & Steps</button>
+                    <button onclick="openCity(event, 'Deliverable')"class="tablinks focus:border-blue-500 focus:border-b-2 focus:text-blue-500 pseudo-item"
+                        style="padding-bottom: 9px">Deliverables</button>
+                </div>
+            </div>
+        </div>
+        <!--Header ends -->
+        <section class=" tabcontent md:grid-cols-2 xl:grid-cols-2 xl:grid-rows-2 xl:grid-flow-col gap-6" id="Dashboard">
+            <div class="flex flex-col md:col-span-3 md:row-span-2 bg-white shadow rounded-lg">
+                <div class="px-6 py-5 font-semibold text-gray-700 ">Working hour statistics for the last week</div>
+                <div class="p-4 flex-grow">
+                    <div
+                        class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">
+                        Chart</div>
+                </div>
+            </div>
+            <!-- table starts -->
+            <div class="block items-center p-5 bg-white shadow rounded-lg space-y-4">
+               <div class="flex justify-between">
+                <div class="text-gray-500 text-xl font-semibold">Recent Activity</div>
+                <button class="text-gray-400 ">View All</button>
+               </div>
+                <div class="flex">        
+                    <div class="flex items-center justify-between">
+                        <div class="inline-flex rounded-full text-white bg-orange-400 px-2.5 py-3  fa-solid fa-cloud-arrow-up mr-3">
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-700 justify-between"><b>Jhon Wick</b> has successfully uploaded 3 documents today.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="flex">        
+                    <div class="flex items-center justify-between">
+                        <div class="inline-flex rounded-full text-white bg-green-500 px-2.5 py-3  fa-solid fa-cloud-arrow-up mr-3">
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-700 justify-between"><b>Aleena</b> has completed 2 task today.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="flex">        
+                    <div class="flex items-center justify-between">
+                        <div class="inline-flex rounded-full text-white bg-purple-400 px-2.5 py-3  fa-solid fa-cloud-arrow-up mr-3">
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-700 justify-between"><b>Jhon Wick</b> changed project name today.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="flex">        
+                    <div class="flex items-center justify-between">
+                        <div class="inline-flex rounded-full text-white bg-orange-400 px-2.5 py-3  fa-solid fa-cloud-arrow-up mr-3">
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-700 justify-between"><b>Jhon Wick</b> has uploaded 3 documents today.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="flex">        
+                    <div class="flex items-center justify-between">
+                        <div class="inline-flex rounded-full text-white bg-green-500 px-2.5 py-3  fa-solid fa-cloud-arrow-up mr-3">
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-700 justify-between"><b>John Wick</b> has completed 2 task today.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="flex">        
+                    <div class="flex items-center justify-between">
+                        <div class="inline-flex rounded-full text-white bg-purple-400 px-2.5 py-3  fa-solid fa-cloud-arrow-up mr-3">
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-700 justify-between"><b>Jhon Wick</b> changed project name today.</p>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+            </div>
+            <!--table ends -->
+
+            <!-- another table starts -->
+            <div class="block items-center p-5 bg-white shadow rounded-lg space-y-5">
+                <div class="flex justify-between py-2">
+                    <div class="text-gray-500 text-xl font-semibold">File Attachment</div>
+                    <button class="text-gray-400 ">View All</button>
+                   </div>
+                   <!--  -->
+                    <div class="flex">
+                        <div class="flex rounded-lg text-white bg-red-500 px-2.5 py-3  fa-solid fa-file mr-3 ">
+                        </div>
+                        <div class="flex space-y-4">
+                            <div class="flex justify-between space-x-7">
+                                <div class="text-sm text-gray-600 font-medium">Data Structure.pdf
+                                <div class=" block text-sm text-gray-600 font-medium">12.3 MB</div>                                
+                            </div>                             
+                            <span class="text-sm ml-auto text-blue-600 cursor-pointer">Download</span>                                                 
+                            </div>                                                   
+                        </div>
+                        <!--  -->                    
+                      
+                    <!-- </div> -->
+                </div>
+                <!--  -->
+                <div class="flex">
+                    <div class="flex rounded-lg text-white bg-green-700 px-2.5 py-3  fa-solid fa-file mr-3 ">
+                    </div>
+                    <div class="flex space-y-4">
+                        <div class="flex justify-between space-x-7">
+                            <div class="text-sm text-gray-600 font-medium">Data Structure.xls
+                            <div class="text-sm text-gray-600 font-medium">12.3 MB</div>                                
+                        </div>                                                    
+                        <span class="text-sm ml-auto text-blue-600 cursor-pointer">Download</span>                                                 
+                        </div>                                                   
+                    </div>
+                    <!--  -->                   
+                <!-- </div> -->
+            </div>
+            <div class="flex">
+                <div class="flex rounded-lg text-white bg-red-500 px-2.5 py-3  fa-solid fa-file mr-3 ">
+                </div>
+                <div class="flex space-y-4">
+                    <div class="flex justify-between space-x-7">
+                        <div class="text-sm text-gray-600 font-medium">Data Structure.pdf
+                        <div class="text-sm text-gray-600 font-medium">12.3 MB</div>                                
+                    </div>                                                    
+                    <span class="text-sm ml-auto text-blue-600 cursor-pointer">Download</span>                                                 
+                    </div>                                                   
+                </div>
+                <!--  -->                   
+            <!-- </div> -->
+        </div>
+        <!--  -->
+        <div class="flex">
+            <div class="flex rounded-lg text-white bg-blue-800 px-2.5 py-3  fa-solid fa-file mr-3">
+            </div>
+            <div class="flex space-y-4">
+                <div class="flex justify-between space-x-7">
+                    <div class="text-sm text-gray-600 font-medium">Data Structure.doc
+                    <div class="text-sm text-gray-600 font-medium">12.3 MB</div>                                
+                </div>                                                    
+                <span class="text-sm ml-auto text-blue-600 cursor-pointer">Download</span>                                                 
+                </div>                                                   
+            </div>
+            <!--  -->                   
+        <!-- </div> -->
+    </div>
+    <!--  -->
+            </div>
+
+            <!-- table starts -->
+            <div class="row-span-3 bg-white shadow rounded-lg">
+                <div class="flex items-center justify-between px-4 py-4 font-semibold">
+                    <div class="relative">
+                        <i class="absolute fa fa-search text-gray-400 top-4 left-4 max-sm:hidden"></i>
+                        <input type="text"
+                            class="bg-gray-100 h-11 w-72 px-9 rounded-xl focus:outline-none max-sm:hidden"
+                            placeholder="Search for projects">
+                    </div>                  
+                </div>
+                <!-- -->
+                <div class="overflow-y-auto">
+                    <ul class="p-5 space-y-4 items-center max-sm:p-4">
+                       
+                        <li class="flex items-center">
+                            <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/men/81.jpg"
+                                    alt="Calvin Steward profile picture">
+                            </div>
+                            <span class="text-sm text-gray-600">Jhon Wick</span>
+                            <span class="text-sm ml-auto text-gray-600">12 tasks in progress</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/men/80.jpg"
+                                    alt="Ralph Richards profile picture">
+                            </div>
+                            <span class="text-sm text-gray-600">Jhon Wick</span>
+                            <span class=" text-sm ml-auto text-gray-600">14 tasks in progress</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/men/79.jpg"
+                                    alt="Bernard Murphy profile picture">
+                            </div>
+                            <span class="text-sm text-gray-600">Jhon Wick</span>
+                            <span class="text-sm ml-auto text-gray-600">8 tasks in progress</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/women/78.jpg"
+                                    alt="Arlene Robertson profile picture">
+                            </div>
+                            <span class="text-sm text-gray-600">Jhon Wick</span>
+                            <span class="text-sm ml-auto text-gray-600">4 tasks in progress</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/women/77.jpg"
+                                    alt="Jane Lane profile picture">
+                            </div>
+                            <span class="text-sm text-gray-600">Jhon Wick</span>
+                            <span class="text-sm ml-auto text-gray-600">4 tasks in progress</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/men/76.jpg"
+                                    alt="Pat Mckinney profile picture">
+                            </div>
+                            <span class="text-sm text-gray-600">Jhon Wick</span>
+                            <span class="text-sm ml-auto text-gray-600">4 tasks in progress</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg"
+                                    alt="Norman Walters profile picture">
+                            </div>
+                            <span class="text-sm text-gray-600">Jhon Wick</span>
+                            <span class="text-sm ml-auto text-gray-600">4 tasks in progress</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/men/81.jpg"
+                                    alt="Calvin Steward profile picture">
+                            </div>
+                            <span class="text-sm text-gray-600">Jhon Wick</span>
+                            <span class="text-sm ml-auto text-gray-600">4 tasks in progress</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/men/80.jpg"
+                                    alt="Ralph Richards profile picture">
+                            </div>
+                            <span class="text-sm text-gray-600">Jhon Wick</span>
+                            <span class=" text-sm ml-auto text-gray-600">4 tasks in progress</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/men/79.jpg"
+                                    alt="Bernard Murphy profile picture">
+                            </div>
+                            <span class="text-sm text-gray-600">Jhon Wick</span>
+                            <span class="text-sm ml-auto text-gray-600">4 tasks in progress</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+          
+        </section>
+        
+        <!-- task -->
+     <section>
+        <div id="Task" class="tabcontent">
+            <div class="flex flex-col md:col-span-3 md:row-span-2 bg-white shadow rounded-lg">
+                <div class="px-6 py-5 font-semibold text-gray-700 ">Tasks</div>
+                <div class="p-4 flex-grow">
+                    <div
+                        class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">
+                        Task</div>
+                </div>
+            </div>
+          </div>
+     </section>
+     <!-- task ends -->
+     <section>
+        <div id="Chat" class="tabcontent">
+            <div class="flex flex-col md:col-span-3 md:row-span-2 bg-white shadow rounded-lg">
+                <div class="px-6 py-5 font-semibold text-gray-700 ">Chat</div>
+                <div class="p-4 flex-grow">
+                    <div
+                        class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">
+                        Chat</div>
+                </div>
+            </div>
+          </div>
+     </section>
+     <section>
+        <div id="Documents" class="tabcontent">
+            <div class="flex flex-col md:col-span-3 md:row-span-2 bg-white shadow rounded-lg">
+                <div class="px-6 py-5 font-semibold text-gray-700 ">Documents</div>
+                <div class="p-4 flex-grow">
+                    <div
+                        class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">
+                        Documents</div>
+                </div>
+            </div>
+          </div>
+     </section>
+     <section>
+        <div id="Pending Requirements" class="tabcontent">
+            <div class="flex flex-col md:col-span-3 md:row-span-2 bg-white shadow rounded-lg">
+                <div class="px-6 py-5 font-semibold text-gray-700 ">Pending Requirements</div>
+                <div class="p-4 flex-grow">
+                    <div
+                        class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">
+                        Pending Requirements</div>
+                </div>
+            </div>
+          </div>
+     </section>
+     <section>
+        <div id="Invoices" class="tabcontent">
+            <div class="flex flex-col md:col-span-3 md:row-span-2 bg-white shadow rounded-lg">
+                <div class="px-6 py-5 font-semibold text-gray-700 ">Invoices</div>
+                <div class="p-4 flex-grow">
+                    <div
+                        class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">
+                        Invoices</div>
+                </div>
+            </div>
+          </div>
+     </section>
+     <section>
+        <div id="Timeline" class="tabcontent">
+            <div class="flex flex-col md:col-span-3 md:row-span-2 bg-white shadow rounded-lg">
+                <div class="px-6 py-5 font-semibold text-gray-700 ">Timeline</div>
+                <div class="p-4 flex-grow">
+                    <div
+                        class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">
+                        Timeline</div>
+                </div>
+            </div>
+          </div>
+     </section>
+     <section>
+        <div id="Deliverable" class="tabcontent">
+            <div class="flex flex-col md:col-span-3 md:row-span-2 bg-white shadow rounded-lg">
+                <div class="px-6 py-5 font-semibold text-gray-700 ">Deliverable</div>
+                <div class="p-4 flex-grow">
+                    <div
+                        class="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">
+                        Deliverable</div>
+                </div>
+            </div>
+          </div>
+     </section>
+    </main>
+
+</body>
+</html>
